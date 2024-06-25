@@ -2,218 +2,55 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <title>Codesaurusator</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        color: #333;
-        transition: background-color 0.3s, color 0.3s;
-      }
+    <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">  
 
-      .main {
-        max-width: 400px;
-        margin: 50px auto;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
-        border-radius: 8px;
-        text-align: center;
-      }
-
-      #logo {
-        width: 50px;
-        height: 50px;
-      }
-
-      h1 {
-        margin-bottom: 20px;
-        font-size: 24px;
-      }
-
-      .calculator {
-        display: flex;
-        flex-direction: column;
-      }
-
-      #output-box {
-        margin-bottom: 10px;
-      }
-
-      .calcoutput {
-        width: 100%;
-        padding: 10px;
-        font-size: 24px;
-        text-align: right;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-      }
-
-      .calButtons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .calButtons div {
-        flex: 1;
-        display: flex;
-        justify-content: space-between;
-      }
-
-      button {
-        flex: 1;
-        padding: 15px;
-        font-size: 18px;
-        border: none;
-        border-radius: 5px;
-        margin: 5px;
-        cursor: pointer;
-        transition: background-color 0.2s;
-      }
-
-      button:hover {
-        background-color: #e0e0e0;
-      }
-
-      .operator {
-        background-color: #ff8c00;
-        color: white;
-      }
-
-      .operator:hover {
-        background-color: #e07b00;
-      }
-
-      .reset {
-        background-color: #f44336;
-        color: white;
-      }
-
-      .reset:hover {
-        background-color: #d32f2f;
-      }
-
-      .eval {
-        background-color: #4caf50;
-        color: white;
-      }
-
-      .eval:hover {
-        background-color: #388e3c;
-      }
-
-      .theme-toggle {
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: #555;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.2s;
-      }
-
-      .theme-toggle:hover {
-        background-color: #444;
-      }
-
-      .dark-mode {
-        background-color: #333;
-        color: #fff;
-      }
-
-      .dark-mode .main {
-        background-color: #444;
-        color: #fff;
-      }
-
-      .dark-mode button {
-        background-color: #555;
-        color: #fff;
-      }
-
-      .dark-mode button:hover {
-        background-color: #666;
-      }
-
-      .dark-mode .operator {
-        background-color: #ff8c00;
-        color: white;
-      }
-
-      .dark-mode .reset {
-        background-color: #f44336;
-        color: white;
-      }
-
-      .dark-mode .eval {
-        background-color: #4caf50;
-        color: white;
-      }
-    </style>
   </head>
   <body>
     <div class='main'>
-      <img src="./assets/logo.ico" id="logo" alt="Logo">
-      <h1>Web Calculator</h1>
-      <div class="calculator">
-        <div id="output-box">
-          <input type="text" name="calcoutput" value="" readonly="readonly" id="res" class='calcoutput'/>
-        </div>
-        <div class='calButtons'>
-          <div>
-            <button onclick="addToProblem(this.innerHTML)">7</button>
-            <button onclick="addToProblem(this.innerHTML)">8</button>
-            <button onclick="addToProblem(this.innerHTML)">9</button>
-            <button class="operator" onclick="addToProblem(this.innerHTML)"> + </button>
-          </div>
-          <div>
-            <button onclick="addToProblem(this.innerHTML)">4</button>
-            <button onclick="addToProblem(this.innerHTML)">5</button>
-            <button onclick="addToProblem(this.innerHTML)">6</button>
-            <button onclick="addToProblem(this.innerHTML)" class="operator"> / </button>
-          </div>
-          <div>
-            <button onclick="addToProblem(this.innerHTML)">1</button>
-            <button onclick="addToProblem(this.innerHTML)">2</button>
-            <button onclick="addToProblem(this.innerHTML)">3</button>
-            <button onclick="addToProblem(' * ')" class="operator"> × </button>
-          </div>
-          <div>
-            <button onclick="addToProblem(this.innerHTML)">0</button>
-            <button onclick="reset()" class="reset">CE</button>
-            <button onclick="calculate()" class="eval">=</button>
-            <button onclick="addToProblem(this.innerHTML)" class="operator"> - </button>
-          </div>
-        </div>
+    <img src="./assets/logo.ico" id="logo">
+    <h1> Web Calculator </h1>    
+    <div class="calculator"> 
+
+      <div id="output-box">
+        <input type="text" name="calcoutput" value="" readonly="readonly" id="res" class='calcoutput'/>
+
       </div>
-      <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
-    </div>
-    <script>
-      function addToProblem(value) {
-        document.getElementById('res').value += value.trim();
-      }
 
-      function calculate() {
-        try {
-          document.getElementById('res').value = eval(document.getElementById('res').value);
-        } catch {
-          document.getElementById('res').value = 'Error';
-        }
-      }
+      <div class='calButtons'>
+      <div>
+          <button onclick="addToProblem(this.innerHTML)">7</button>
+          <button onclick="addToProblem(this.innerHTML)">8</button>
+          <button onclick="addToProblem(this.innerHTML)">9</button>
+          <button class="operator" onclick="addToProblem(this.innerHTML)"> + </button>
+      </div>
 
-      function reset() {
-        document.getElementById('res').value = '';
-      }
+      <div>
+          <button onclick="addToProblem(this.innerHTML)">4</button>
+          <button onclick="addToProblem(this.innerHTML)">5</button>
+          <button onclick="addToProblem(this.innerHTML)">6</button>
+          <button onclick="addToProblem(this.innerHTML)" class="operator"> /  </button>
+      </div>
 
-      function toggleTheme() {
-        document.body.classList.toggle('dark-mode');
-      }
-    </script>
+      <div>
+          <button onclick="addToProblem(this.innerHTML)">1</button>
+          <button onclick="addToProblem(this.innerHTML)">2</button>
+          <button onclick="addToProblem(this.innerHTML)">3</button>
+          <button onclick="addToProblem(' * ')" class="operator"> × </button>
+      </div>
+
+      <div>
+          <button onclick="addToProblem(this.innerHTML)">0</button>
+          <button onclick="reset()" class="reset">ce</button>
+          <button onclick="calculate()" class="eval">=</button>
+          <button onclick="addToProblem(this.innerHTML)" class="operator"> - </button>
+      </div>
+      </div>
+      </div>
+            
+
+    <script src="script.js"></script>
   </body>
 </html>
